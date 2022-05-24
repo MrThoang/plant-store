@@ -1,0 +1,78 @@
+<header class="size-page">
+    <div class="header">
+        <div class="header-content bg-white">
+            <div class="header-content--box">
+                <div class="content--box-hover" #item >
+                  <i class="box-hover-item fa-solid fa-magnifying-glass"></i>
+                  <input class="box-hover-item" (keyup.enter)="Enter()"
+                         type="text" placeholder="Search..." (focus)="onFocus()" (blur)="onBlur()" appFocusInput>
+                </div>
+            </div>
+            <div class="header-content--box">
+              <ng-container *ngIf="!isAccount">
+                <div class="login" routerLink="/login">
+                  <a >
+                  <i class="login-item font-22 fa-solid fa-circle-user"></i>
+                  </a>
+                  <p class="login-item login-item-title">Log In</p>
+                </div>
+              </ng-container>
+              <ng-container *ngIf="isAccount">
+                  <div class="logout">
+                    <a>
+                      <i class="login-item font-22 fa-solid fa-circle-user"></i>
+                    </a>
+                    <p class="login-item login-item-title" >{{Account.userName}}</p>
+                    <div class="logout-btn">
+                      <a (click)="logout()" href="/">Log out</a>
+                    </div>
+                  </div>
+                </ng-container>
+                <div class="cart">
+                  <i class="font-22 fa-solid fa-bag-shopping" routerLink="/view-cart">
+                    <p class="count-item">{{itemInCart}}</p></i>
+                </div>
+            </div>
+        </div>
+        <div class="header-content bg-page">
+            <nav class="nav-header-content">
+              <a routerLink="/home-page" (click)="goTop()" class="name-shop font-22">
+                PRICKLES & CO.
+              </a>
+              <div class="nav-menu--item nav-menu--hover">
+                  <a routerLink="/product-list" routerLinkActive="active">Shop</a>
+                    <ul class="hover-list">
+                        <li class="hover-list-item">
+                          <a routerLink="/cacti"  [routerLinkActive]="['active']">
+                            Cacti
+                          </a>
+                        </li>
+                        <li class="hover-list-item">
+                          <a routerLink="/plants" [routerLinkActive]="['active']">
+                            Plants
+                          </a>
+                        </li>
+                        <li class="hover-list-item">
+                          <a routerLink="/succulents" [routerLinkActive]="['active']">
+                            Succulents
+                          </a>
+                        </li>
+                    </ul>
+              </div>
+              <div class="nav-menu--item">
+                <a (click)="goAbout()">About</a>
+              </div>
+              <div class="nav-menu--item">
+                <a href="#">FAQ</a>
+              </div>
+              <div class="nav-menu--item">
+                <a (click)="goContact()" routerLink="/home-page">Contact</a>
+              </div>
+            </nav>
+            <div class="nav-header-content">
+              <p class="nav-header-content-title " [class.actived]="onActive1">Call Us Now! 123-456-7890</p>
+              <p class="nav-header-content-title actived" [class.actived]="onActive2">We Deliver to Your Doorste</p>
+            </div>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,35 @@
+<div class="login size-page">
+  <div class="login-container">
+      <p class="login-form-title">Login in</p>
+      <form  [formGroup]="loginForm" name="loginForm">
+        <div class="form-content">
+          <label for="e-mail"> Email: </label>
+          <input type="text"
+                 id="e-mail"
+                 formControlName="email"
+                 class="form-control"
+                 name="email"
+                 autocomplete="on"
+                 >
+        </div>
+        <div class="form-content">
+          <label for="password">Password:</label>
+          <input type="password"
+                 id="password"
+                 class="form-control"
+                 formControlName="password"
+                 name="password"
+                 autocomplete="on"
+                 >
+        </div>
+        <div class="btn-login">
+          <button type="submit" class="btn btn-success" (click)="login()" [disabled]="!loginForm.valid">
+              <!-- <a (click)="login()" href="/home-page" style="display: inline-block;" >/ -->
+                Login
+              <!-- </a> -->
+            </button>
+        </div>
+        <p class="title-form">New to PRICKLES & CO.<a routerLink="/register"> Sign up </a></p>
+      </form>
+    </div>
+</div>

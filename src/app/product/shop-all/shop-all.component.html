@@ -1,0 +1,78 @@
+<div class="shop-all size-page">
+    <div class="banner-bg">
+        <div class="banner-box">
+          <div>
+            <div class="banner-box--title">
+              <h1 class="title-name pd-tb-18 ">EVERYTHING THAT GROWS IN OUR GARDEN</h1>
+              <p class="title-desc pd-tb-18 ">I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to
+              add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a
+              little more about you.</p>
+            </div>
+            <div class="pd-tb-18">
+              <div class="down-icon" >
+                  <i (click)="goList()" class="fa-solid fa-circle-chevron-down"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="shop-all--title" id="product">
+      <h1>Shop all</h1>
+    </div>
+    <div class="search-product">
+      <div class="search-product--content">
+        <div class="search-product--input">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" class="input-search" [(ngModel)]="searchValue" (ngModelChange)="searchProduct()" placeholder="Search...">
+        </div>
+        <div class="search-product--content-filter">
+          <p>Collection:</p>
+          <select class="form-select" aria-label="Default select example"  (change)="filterProductItem($event)">
+            <option class="select-item" value="">all category</option>
+            <option *ngFor="let category of categoryList" class="select-item"  [value]="category.categoryName">{{category.categoryName}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="search-product--content">
+          <div class="search-product--content-filter">
+            <p>Sort By:</p>
+            <select class="form-select" aria-label="Default select example" (change)="sortProductItem($event)">
+              <option class="select-item" value="">Best Match</option>
+              <option *ngFor="let data of listSortValue" class="select-item" value="{{data.sate}}">
+                {{data.title}}</option>
+            </select>
+          </div>
+      </div>
+    </div>
+    <div class="product-list row gx-4 gy-5" >
+      <ng-container *ngIf="isNull">
+        <p class="search-not-found">
+          No results found!
+        </p>
+      </ng-container>
+      <div class="product-list-content col-3" *ngFor="let data of productList | paginate: {itemsPerPage: 8, currentPage: p}">
+        <div class="product-list-item">
+          <a [routerLink]="['details', data.id]" [queryParams]="{page: data.id}" fragment="plant">
+            <img src="{{data.productImg}}" onerror="this.src='../../assets/images/senda2.webp'" alt="image">
+          </a>
+        </div>
+        <div class="product-list-item">
+          <p>{{data.productName}}</p>
+        </div>
+        <div class="product-list-item">
+          <p>{{data.productPrice | currency:'USD':'symbol'}}</p>
+        </div>
+        <div class="product-list-item product-list-item--flex">
+          <button class="btn-list" (click)="openAddToCart(data)" >
+            Add to cart
+          </button>
+          <!-- <button class="btn-list " [routerLink]="['details', data.id]" [queryParams]="{page: data.id}" fragment="plant">
+            Detail
+          </button> -->
+        </div>
+      </div>
+      <pagination-controls class="pagination" (pageChange)=" p = $event"></pagination-controls>
+    </div>
+<ng-container>
+    <app-add-to-cart #openCart ></app-add-to-cart>
+</ng-container>

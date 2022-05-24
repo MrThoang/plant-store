@@ -1,0 +1,129 @@
+<div class="home-page size-page">
+   <section>
+     <div class="intro-bg" id="top">
+       <div class="intro-box">
+         <div>
+           <div class="intro-box--title">
+             <p class="title-top pd-tb-18 ">PLANT WORLD</p>
+             <h1 class="title-name pd-tb-18 ">PRICKLES & CO </h1>
+             <p class="title-desc pd-tb-18 ">BRING NATURE INDOORS</p>
+           </div>
+           <div class="pd-tb-18">
+             <button type="button" class="btn-shop" routerLink="/product-list">
+               Shop Now
+             </button>
+           </div>
+         </div>
+       </div>
+    </div>
+   </section>
+   <section>
+    <div class="product-demo row gx-5">
+      <!-- Truyen data tu parent vao child -->
+      <div class="col-4" *ngFor="let item of listCategory" >
+        <ng-container >
+         <!--  dùng ng-container để gộp lại -->
+          <app-category [data]="item"></app-category>
+        </ng-container>
+      </div>
+    </div>
+   </section>
+   <section>
+      <div class="about" id="about">
+          <div class="about-box">
+            <div class="about-box--content">
+              <article class="about-box--item-article">
+                <p class="about-box--item-title">
+                  ABOUT US
+                </p>
+                <div class="box-item-line">
+                  <p></p>
+                </div>
+                <p class="about-box--item-desc">
+                  I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to
+                  add your own content and make changes to the font. Feel free to drag and drop me anywhere you like on your page. I’m a
+                  great place for you to tell a story and let your users know a little more about you.
+                </p>
+                <p class="about-box--item-desc">
+                  This is a great space to write long text about your company and your services. You can use this space to go into a
+                  little more detail about your company. Talk about your team and what services you provide.
+                </p>
+              </article>
+            </div>
+            <div class="about-box--item about-box--item-img">
+              <div class="about-box--item-right">
+                <img src="../../assets/images/about-right-1.webp" alt="Image">
+              </div>
+              <div class="about-box--item-right">
+                <img src="../../assets/images/about-right-2.webp" alt="Image">
+              </div>
+            </div>
+          </div>
+          <div class="about-box">
+              <div class="about-box--content">
+                  <img class="about-box--bottom-img" src="../../assets/images/about-bottom.webp" alt="Images">
+              </div>
+              <div class="about-box--content">
+                <div class="about-box--content-bottom">
+                  <div class="content-bottom">
+                    <h1 class="content-bottom--sale">
+                      <span>
+                        BUY ONLINE NOW & GET 10% OFF !
+                      </span>
+                    </h1>
+                    <button class="btn-about" routerLink="/product-list">Shop Now</button>
+                  </div>
+                </div>
+              </div>
+          </div>
+      </div>
+   </section>
+   <section>
+        <div class="special-order" id="contact">
+            <div class="special-oder--box">
+                <form class="special-oder--form">
+                  <div class="form-content">
+                        <div class="form-content--title">
+                            <p>
+                              FOR SPECIAL REQUESTS & ORDERS
+                            </p>
+                            <div class="box-item-line">
+                              <p></p>
+                            </div>
+                        </div>
+                        <div class="form-item">
+                              <div class="form-item--name">
+                                  <div class="form-item--name-input">
+                                    <label for="firstName">First Name *</label>
+                                    <br>
+                                    <input type="text" name="firstName"  class="input-special" placeholder="First Name">
+                                  </div>
+                                  <div class="form-item--name-input">
+                                    <label for="lastName">Last Name *</label>
+                                    <br>
+                                    <input type="text" name="lastName"  class="input-special" placeholder="Last Name">
+                                  </div>
+                              </div>
+                              <div class="form-item--input">
+                                  <label for="email">Email *</label>
+                                  <br>
+                                  <input type="email" name="email" class="input-specail" placeholder="Email">
+                              </div>
+                              <div class="form-item--input">
+                                  <label for="phone">Phone</label>
+                                  <br>
+                                  <input type="text" name="phone" class="input-specail" placeholder="Phone number">
+                              </div>
+                              <div class="form-item--input message-input">
+                                  <label for="message">Message</label>
+                                  <br>
+                                  <input type="text" name="message" class="input-specail" placeholder="Message">
+                              </div>
+                        </div>
+                        <button type="submit" class="btn-submit">Send</button>
+                   </div>
+                </form>
+            </div>
+        </div>
+   </section>
+</div>

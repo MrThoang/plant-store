@@ -1,0 +1,140 @@
+<div class="register size-page">
+      <div class="register-container">
+          <p class="register-form-title">Sign Up</p>
+        <form [formGroup]="registerForm" (ngSubmit)="signup()" autocomplete="off">
+            <div class="form-content">
+              <label for="user-name"> Name: </label>
+              <input class="form-control"
+                     id="user-name"
+                     type="text"
+                     formControlName="userName"
+                     placeholder="Name"
+                     required
+                     >
+              <div class="col alert alert-danger" role="alert"
+               *ngIf="userName?.invalid && (userName?.touched || userName?.dirty)">
+                <div *ngIf="userName?.hasError('required')">
+                  Please input your UerName
+                </div>
+                <div *ngIf="userName?.hasError('minlength')">
+                  Name must be at least 4 characters long.
+                </div>
+                <div *ngIf="userName?.hasError('maxlength')">
+                  Name must be shorter than 32 characters.
+                </div>
+                <div *ngIf="userName?.hasError('invalidUsername')">
+                  Invalid Username!
+                </div>
+              </div>
+            </div>
+            <div class="form-content">
+              <label for="e-mail">E-mail: </label>
+              <input class="form-control"
+                     id="e-mail" type="email"
+                     formControlName="email"
+                     placeholder="your email"
+                     autocomplete="on"
+                     required
+                     >
+              <div class="col alert alert-danger" role="alert"
+                   *ngIf="email?.invalid && (email?.touched || email?.dirty)">
+                <div *ngIf="email?.hasError('required')">
+                  Please input your E-mail
+                </div>
+                <div *ngIf="email?.hasError('email')">
+                  The input is not valid E-mail!
+                </div>
+              </div>
+            </div>
+            <div class="form-content">
+              <label for="phone-number"> Phone number: </label>
+              <input class="form-control"
+                     id="phone-number"
+                     type="tel"
+                     formControlName="phoneNumber"
+                     placeholder="your phone number"
+                     required
+                     >
+              <div class="col alert alert-danger" role="alert"
+                   *ngIf="phoneNumber?.invalid && (phoneNumber?.touched || phoneNumber?.dirty)">
+                <div *ngIf="phoneNumber?.hasError('required')">
+                  Please input your phone number!
+                </div>
+                <div *ngIf="phoneNumber?.hasError('maxlength')">
+                  Phone number must be shorter than 10 number.
+                </div>
+                <div *ngIf="phoneNumber?.hasError('noLetter')">
+                  Phone number without letter!
+                </div>
+              </div>
+            </div>
+            <!-- <div class="form-content">
+                <div class="avatar-img">
+                  <label for="avatar"> Avatar: </label>
+                  <input class="form-control" id="avatar" type="file" (change)="onFileSelected($event)">
+                  <ng-container *ngIf="avatarImg !== ''">
+                    <a href="{{avatarImg}}" target="_blank">
+                      <img src="{{avatarImg}}">
+                    </a>
+                  </ng-container>
+                </div>
+                <div class="overlayUpload" #loading>
+                  <div class="spin-upload">
+                    <div class="spinner-border" role="status">
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+            </div> -->
+            <div class="form-content">
+              <label for="password"> Password: </label>
+              <input class="form-control"
+                     id="password"
+                     type="password"
+                     formControlName="password"
+                     placeholder="Password"
+                     required
+                     >
+              <div class="col alert alert-danger" role="alert"
+                   *ngIf="password?.invalid && (password?.touched || password?.dirty)">
+                <div *ngIf="password?.hasError('required')">
+                    Please input your password!
+                </div>
+                <div *ngIf="password?.hasError('minlength')">
+                    Password must be at least 6 characters long.
+                </div>
+                <div *ngIf="password?.hasError('maxlength')">
+                    Password must be shorter than 32 characters.
+                </div>
+                <div *ngIf="password?.hasError('noWhiteSpace')">
+                    No white spaces!
+                </div>
+              </div>
+            </div>
+            <div class="form-content">
+              <label for="confirm-password"> Confirm password: </label>
+              <input class="form-control"
+                     id="confirm-password"
+                     type="password"
+                     formControlName="confirmPassword"
+                     placeholder="confirm your password"
+                     required
+                     >
+              <div class="col alert alert-danger" role="alert"
+                  *ngIf="confirmPassword?.invalid && (confirmPassword?.touched || confirmPassword?.dirty)">
+                <div *ngIf="confirmPassword?.hasError('required')">
+                    Please confirm your password!
+                </div>
+                <div *ngIf="confirmPassword?.hasError('confirm')">
+                    Password does not match!
+                </div>
+              </div>
+            </div>
+          </form>
+          <div class="btn-register">
+            <button type="submit" (click)="signup()">Sign up</button>
+          </div>
+          <p class="title-form">Plant trees to help you relax!</p>
+          <p class="title-login">Already register? <a routerLink="/login">Click to Login!</a></p>
+      </div>
+</div>
